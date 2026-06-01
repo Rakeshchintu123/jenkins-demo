@@ -1,20 +1,23 @@
 pipeline {
-agent any
-stages {
-stage('Clone Code') {
-steps {
-git branch: 'main', url:https://github.com/Rakeshchintu123/jenkins-demo
-}
-}
-stage('Compile Code') {
-steps {
-bat 'javac demo.java'
-}
-}
-stage('Run Code') {
-steps {
-bat 'java demo'
-}
-}
-}
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building Application'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Testing Application'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying Application'
+            }
+        }
+    }
 }
